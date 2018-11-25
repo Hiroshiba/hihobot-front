@@ -1,0 +1,16 @@
+.text {
+  padding-inline-start: 0;
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  text-shadow: 0.5px 0.5px 0 #fff, -0.5px 0.5px 0 #fff, 0.5px -0.5px 0 #fff,
+    -0.5px -0.5px 0 #fff;
+}
+
+.input-text {
+  color: #ff00ff;
+}
+
+.output-text {
+  color: #00ffff;
+}
