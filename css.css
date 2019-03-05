@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  background-color: #000;
+  height: 100vh;
+}
+
 .text {
   padding-inline-start: 0;
   border: none;
@@ -5,6 +11,7 @@
   font-weight: bold;
   text-shadow: 0.5px 0.5px 0 #fff, -0.5px 0.5px 0 #fff, 0.5px -0.5px 0 #fff,
     -0.5px -0.5px 0 #fff;
+  height: 50%;
 }
 
 .input-text {

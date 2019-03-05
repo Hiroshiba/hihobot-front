@@ -1,11 +1,13 @@
 import { Answerer } from "./answerer.js";
 import { Synthesizer } from "./synthesizer.js";
 import { Recognizer } from "./recognizer.js";
+import { urlAnswerer, urlTextToContext, urlContextToWave } from "./config.js"
 
-const urlAnswerer = "http://localhost:8000/answer?text=";
-const urlSynthesizer = "http://localhost:8000/synthesize?text=";
 const answerer = new Answerer({ url: urlAnswerer });
-const synthesizer = new Synthesizer({ url: urlSynthesizer });
+const synthesizer = new Synthesizer({
+  urlTextToContext: urlTextToContext,
+  urlContextToWave: urlContextToWave
+});
 
 let flushFlag = false;
 let flushTimer = null;
@@ -88,7 +90,8 @@ function onSpeechStop(text) {
 
 async function createAndPlayResponse(textQuestion) {
   const text = await answerer.answer(textQuestion);
-  const audio = await synthesizer.synthesize(text);
+  const context = await synthesizer.textToContext(text);
+  const audio = await synthesizer.contextToWave(context);
   audio.start(0);
   setOutputText(text);
 }
